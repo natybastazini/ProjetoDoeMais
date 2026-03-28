@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./dist/output.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Agbalumo&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="./img/logo.png" type="image/png" />
+    <title>Doe Mais</title>
+  </head>
+  <body class="flex flex-col h-screen">
+    <!-- Cabeçalho -->
+    <header class="flex w-screen justify-between items-center h-1/3 p-10">
+      <!-- Logo -->
+      <div class="flex flex-row items-end">
+        <img
+          class="w-28 h-28"
+          src="./img/logo.png"
+          alt="Gota de Sangue com um mais no meio e sinal de batimento cardiáco."
+        />
+        <!-- Escrita nome do projeto -->
+        <p class="flex items-end font-agbalumo text-red-1 pb-2">
+          <span class="text-base">Doe</span>
+          <span class="text-sm translate-y-1">+</span>
+        </p>
+      </div>
+      <!-- Navegação -->
+      <ul
+        class="flex flex-row gap-4 font-inter text-gray-1 font-light w-2/5 h-full justify-evenly items-center"
+      >
+        <li class="cursor-pointer hover:text-red-1">Dúvidas</li>
+        <li class="cursor-pointer hover:text-red-1">Teste</li>
+        <li class="cursor-pointer hover:text-red-1">Quero doar</li>
+        <li class="cursor-pointer hover:text-red-1">Quero doar</li>
+      </ul>
+      <!-- Botão cadastro -->
+      <a href="#">
+        <button
+          class="font-inter font-semibold bg-white text-red-1 border-2 border-red-1 w-32 h-8 rounded-4xl transition-all duration-500 hover:text-white hover:bg-red-1 cursor-pointer"
+        >
+          Quero doar!
+        </button>
+      </a>
+    </header>
+    <!-- Principal -->
+    <main class="flex h-full justify-evenly items-center">
+      <!-- Escrita nome do projeto -->
+      <div class="flex justify-center font-agbalumo text-red-1 w-1/4 h-1/2">
+        <h1 class="flex">
+          <span class="text-8xl">Doe</span>
+          <span class="text-8xl translate-y-4">+</span>
+        </h1>
+      </div>
+      <!-- Texto informativo-->
+      <div
+        class="flex flex-col justify-center w-1/4 h-full overflow-hidden wrap-break-word"
+      >
+        <p class="font-inter text-gray-1 pb-8">
+          Nosso objetivo é salvar vidas! <br />
+          Com um simples gesto, você pode levar esperança e transformar
+          histórias de verdade. Faça parte dessa corrente do bem. <br />
+          Doe mais, faça mais, seja mais!
+        </p>
+        <!-- Botão saiba mais -->
+        <a href="#">
+          <button
+            class="font-inter font-semibold bg-white text-red-1 border-2 border-red-1 w-32 h-8 rounded-4xl transition-all duration-500 hover:text-white hover:bg-red-1 cursor-pointer"
+          >
+            Saiba Mais
+          </button>
+        </a>
+      </div>
+    </main>
+    <!-- Rodapé -->
+    <footer class="flex h-10 bg-red-1 rounded-t-xl justify-center items-center">
+      <p class="font-inter font-thin text-white text-xs">
+        &copy; Mateus de Alcantara, Natália Bastazini, Thiago dos Anjos e Victor
+        Vicentini
+      </p>
+    </footer>
+  </body>
+</html>
