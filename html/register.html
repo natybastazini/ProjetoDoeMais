@@ -35,91 +35,187 @@
           <h1 class="text-4xl font-extralight">Crie sua conta</h1>
           <div class="flex flex-row text-sm gap-2">
             <p class="font-extralight">Já possuí conta?</p>
-            <a class="font-normal underline" href="./developing.html">Clique aqui</a>
+            <a class="font-normal underline" href="./developing.html"
+              >Clique aqui</a
+            >
           </div>
         </div>
         <!-- Formulário para o cadastro -->
-        <form class="flex flex-col justify-evenly h-full w-4/5 gap-4 bg-amber-100" action="#">
+        <form
+          class="flex flex-col justify-evenly h-full w-4/5 gap-4 bg-amber-100"
+          action="#"
+        >
           <!-- Input nome -->
           <div
-            class="group relative flex flex-row justify-center items-center w-4/5 h-12 bg-white border-2 border-gray-2 p-2 rounded-3xl gap-2 focus-within:border-green-1 focus-within:bg-green-2"
+            class="group relative flex flex-row justify-center items-center w-4/5 h-12 bg-white border-2 border-gray-2 p-2 rounded-3xl gap-2 focus-within:border-red-1"
           >
             <input
-              class="peer outline-none w-full bg-transparent pl-6 text-gray-1 text-base transition-all duration-200 focus:text-green-1"
+              class="peer outline-none w-full bg-transparent pl-6 text-gray-1 text-base transition-all duration-200"
               required
               placeholder=" "
               type="text"
               name="nome"
               id="nome"
             />
-
             <label
               for="nome"
-              class="absolute left-8 top-1/2 -translate-y-1/2 text-gray-1 transition-all duration-200 peer-focus:top-2 peer-focus:text-xs peer-focus:text-green-1 peer-valid:top-2 peer-valid:text-xs"
+              class="absolute left-6 top-1/2 -translate-y-1/2 text-base text-gray-1 bg-white px-1 transition-all duration-200 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:text-base peer-focus:top-0 peer-focus:-translate-y-1/2 peer-focus:text-xs peer-focus:text-red-1 peer-valid:top-0 peer-valid:-translate-y-1/2 peer-valid:text-xs"
             >
               Nome
             </label>
+            <!-- 
+            absolute: tira o label do fluxo normal para posicioná-lo sobre o input
+            left-6: distância da esquerda do container
+            top-1/2 -translate-y-1/2: centraliza verticalmente no meio do input
+            text-base: tamanho de fonte padrão
+            text-gray-1: cor do texto padrão
+            bg-white: fundo branco para "cortar" a borda quando o label sobe
+            px-1: espaçamento horizontal para o fundo não ficar colado no texto
+            transition-all duration-200: animação suave de 200ms em todas as propriedades
+
+            peer-placeholder-shown:top-1/2: enquanto o campo estiver vazio, mantém no meio
+            peer-placeholder-shown:-translate-y-1/2: enquanto o campo estiver vazio, mantém centralizado
+            peer-placeholder-shown:text-base: enquanto o campo estiver vazio, mantém tamanho normal
+
+            peer-focus:top-0: ao clicar, sobe o label para a borda superior
+            peer-focus:-translate-y-1/2: ao clicar, centraliza o label na borda
+            peer-focus:text-xs: ao clicar, diminui o tamanho da fonte
+            peer-focus:text-red-1: ao clicar, muda a cor do label para red-1
+
+            peer-valid:top-0: com o campo preenchido, mantém o label na borda
+            peer-valid:-translate-y-1/2: com o campo preenchido, mantém centralizado na borda
+            peer-valid:text-xs: com o campo preenchido, mantém a fonte pequena
+            -->
           </div>
           <!-- Input data nascimento -->
           <div
-            class="group relative flex flex-row justify-center items-center w-4/5 h-12 bg-white border-2 border-gray-2 p-2 rounded-3xl gap-2 transition-all duration-200 focus-within:border-green-1 focus-within:bg-green-2"
+            class="group relative flex flex-row justify-center items-center w-4/5 h-12 bg-white border-2 border-gray-2 p-2 rounded-3xl gap-2 transition-all duration-200 focus-within:border-red-1"
           >
             <img
-              class="size-4 transition-all duration-200 group-focus-within:hidden"
+              class="size-4"
               src="../img/data_nascimento.png"
               alt="bolo de aniversário"
             />
-
-            <img
-              class="size-4 hidden transition-all duration-200 group-focus-within:block"
-              src="../img/data_nascimento_selecionada.png"
-              alt="bolo de aniversário"
-            />
-
             <input
-              class="[&::-webkit-calendar-picker-indicator]:opacity-40 peer outline-none w-4/5 text-gray-1 text-base pt-5 transition-all duration-200 group-focus-within:text-green-1"
+              class="[&::-webkit-calendar-picker-indicator]:opacity-40 peer outline-none w-4/5 text-gray-1 text-base transition-all duration-200"
               required
               type="date"
               name="data_nascimento"
               id="data_nascimento"
             />
-
             <label
               for="data_nascimento"
-              class="pointer-events-none absolute left-14 top-2 text-xs text-gray-1 transition-all duration-200 group-focus-within:text-green-1"
+              class="pointer-events-none absolute left-14 top-1/2 -translate-y-1/2 text-base text-gray-1 bg-white px-1 transition-all duration-200 group-focus-within:top-0 group-focus-within:-translate-y-1/2 group-focus-within:text-xs group-focus-within:text-red-1 peer-valid:top-0 peer-valid:-translate-y-1/2 peer-valid:text-xs"
             >
               Data de nascimento
             </label>
+            <!-- 
+            pointer-events-none: desativa eventos do mouse no label para não interferir no input
+            absolute: tira o label do fluxo normal para posicioná-lo sobre o input
+            left-14: distância da esquerda (maior pois há ícone à esquerda)
+            top-1/2 -translate-y-1/2: centraliza verticalmente no meio do input
+            text-base: tamanho de fonte padrão
+            text-gray-1: cor do texto padrão
+            bg-white: fundo branco para "cortar" a borda quando o label sobe
+            px-1: espaçamento horizontal para o fundo não ficar colado no texto
+            transition-all duration-200: animação suave de 200ms em todas as propriedades
+
+            group-focus-within:top-0: ao clicar, sobe o label para a borda superio
+            group-focus-within:-translate-y-1/2: ao clicar, centraliza o label na borda
+            group-focus-within:text-xs: ao clicar, diminui o tamanho da fonte
+            group-focus-within:text-red-1: ao clicar, muda a cor do label para red-1
+            (usa group-focus-within ao invés de peer-focus pois type="date" não suporta placeholder)
+
+            peer-valid:top-0: com o campo preenchido, mantém o label na borda
+            peer-valid:-translate-y-1/2: com o campo preenchido, mantém centralizado na borda
+            peer-valid:text-xs: com o campo preenchido, mantém a fonte pequena
+            -->
           </div>
-          <!-- Input CPF -->
-          <div
-            class="group relative flex flex-row justify-center items-center w-4/5 h-12 bg-white border-2 border-gray-2 p-2 rounded-3xl gap-2 focus-within:border-green-1 focus-within:bg-green-2"
-          >
-            <img
-              class="size-4 transition-all group-focus-within:hidden"
-              src="../img/cpf.png"
-              alt="documento de identidade"
-            />
-
-            <img
-              class="size-4 hidden transition-all group-focus-within:block"
-              src="../img/cpf_selecionado.png"
-              alt="documento de identidade"
-            />
-
-            <input
-              class="peer outline-none w-4/5 text-gray-1 text-base transition-all duration-200 focus:text-green-1"
-              required
-              type="text"
-              name="cpf"
-              id="cpf"
-            />
-
-            <label
-              for="cpf"
-              class="absolute left-14 top-1/2 -translate-y-1/2 text-gray-1 transition-all duration-200 peer-focus:top-2 peer-focus:text-xs peer-focus:text-green-1 peer-valid:top-2 peer-valid:text-xs"
+          <!-- TIPO SANGUÍNEO E CEP -->
+          <div class="flex flex-row gap-4">
+            <!-- Input tipo sanguíneo -->
+            <div
+              class="group relative flex flex-row justify-center items-center w-4/5 h-12 bg-white border-2 border-gray-2 p-2 rounded-3xl gap-2 focus-within:border-red-1"
             >
-              CPF
+              <img class="size-4" src="../img/tipo_sanguineo.png" alt="gota" />
+              <input
+                class="peer outline-none w-4/5 text-gray-1 text-base transition-all duration-200"
+                required
+                placeholder=" "
+                type="text"
+                name="tipo_sanguineo"
+                id="tipo_sanguineo"
+              />
+              <label
+                for="tipo_sanguineo"
+                class="absolute left-14 top-1/2 -translate-y-1/2 text-base text-gray-1 bg-white px-1 transition-all duration-200 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:text-base peer-focus:top-0 peer-focus:-translate-y-1/2 peer-focus:text-xs peer-focus:text-red-1 peer-valid:top-0 peer-valid:-translate-y-1/2 peer-valid:text-xs"
+              >
+                Tipo sanguíneo
+              </label>
+            </div>
+            <!-- Input CPF -->
+            <div
+              class="group relative flex flex-row justify-center items-center w-4/5 h-12 bg-white border-2 border-gray-2 p-2 rounded-3xl gap-2 focus-within:border-red-1"
+            >
+              <img
+                class="size-4"
+                src="../img/cpf.png"
+                alt="documento de identidade"
+              />
+              <input
+                class="peer outline-none w-4/5 text-gray-1 text-base transition-all duration-200"
+                required
+                placeholder=" "
+                type="text"
+                name="cpf"
+                id="cpf"
+              />
+              <label
+                for="cpf"
+                class="absolute left-14 top-1/2 -translate-y-1/2 text-base text-gray-1 bg-white px-1 transition-all duration-200 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:text-base peer-focus:top-0 peer-focus:-translate-y-1/2 peer-focus:text-xs peer-focus:text-red-1 peer-valid:top-0 peer-valid:-translate-y-1/2 peer-valid:text-xs"
+              >
+                CPF
+              </label>
+            </div>
+          </div>
+          <!-- Input E-mail -->
+          <div
+            class="group relative flex flex-row justify-center items-center w-4/5 h-12 bg-white border-2 border-gray-2 p-2 rounded-3xl gap-2 focus-within:border-red-1"
+          >
+            <img class="size-4" src="../img/email.png" alt="envelope" />
+            <input
+              class="peer outline-none w-4/5 text-gray-1 text-base transition-all duration-200"
+              required
+              placeholder=" "
+              type="email"
+              name="email"
+              id="email"
+            />
+            <label
+              for="email"
+              class="absolute left-14 top-1/2 -translate-y-1/2 text-base text-gray-1 bg-white px-1 transition-all duration-200 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:text-base peer-focus:top-0 peer-focus:-translate-y-1/2 peer-focus:text-xs peer-focus:text-red-1 peer-valid:top-0 peer-valid:-translate-y-1/2 peer-valid:text-xs"
+            >
+              E-mail
+            </label>
+          </div>
+          <!-- Input E-mail -->
+          <div
+            class="group relative flex flex-row justify-center items-center w-4/5 h-12 bg-white border-2 border-gray-2 p-2 rounded-3xl gap-2 focus-within:border-red-1"
+          >
+            <img class="size-4" src="../img/senha.png" alt="cadeado" />
+            <input
+              class="peer outline-none w-4/5 text-gray-1 text-base transition-all duration-200"
+              required
+              placeholder=" "
+              type="password"
+              name="senha"
+              id="senha"
+            />
+            <label
+              for="senha"
+              class="absolute left-14 top-1/2 -translate-y-1/2 text-base text-gray-1 bg-white px-1 transition-all duration-200 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:text-base peer-focus:top-0 peer-focus:-translate-y-1/2 peer-focus:text-xs peer-focus:text-red-1 peer-valid:top-0 peer-valid:-translate-y-1/2 peer-valid:text-xs"
+            >
+              Senha
             </label>
           </div>
         </form>
