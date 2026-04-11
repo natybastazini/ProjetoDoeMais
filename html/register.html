@@ -24,7 +24,7 @@
       <img
         class="w-44 h-44"
         src="../img/cadastro_banco_sangue.png"
-        alt="foto de um banco de sangue"
+        alt="banco de sangue"
       />
       <p class="text-xl font-bold">Espalhe vida com um gesto</p>
     </div>
@@ -42,7 +42,7 @@
         </div>
         <!-- Formulário para o cadastro -->
         <form
-          class="flex flex-col justify-evenly h-full w-4/5 gap-4 bg-white"
+          class="flex flex-col justify-evenly h-full w-4/5 gap-4"
           action="#"
         >
           <!-- Input nome -->
@@ -59,33 +59,10 @@
             />
             <label
               for="nome"
-              class="absolute left-6 top-1/2 -translate-y-1/2 text-base text-gray-1 bg-white px-1 transition-all duration-200 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:text-base peer-focus:top-0 peer-focus:-translate-y-1/2 peer-focus:text-xs peer-focus:text-red-1 peer-valid:top-0 peer-valid:-translate-y-1/2 peer-valid:text-xs"
+              class="absolute left-6 top-1/2 -translate-y-1/2 text-base text-gray-1 bg-white px-1 transition-all duration-200 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:text-base peer-focus:top-0 peer-focus:-translate-y-1/2 peer-focus:text-xs peer-focus:text-red-1 peer-not-placeholder-shown:top-0 peer-not-placeholder-shown:-translate-y-1/2 peer-not-placeholder-shown:text-xs"
             >
               Nome
             </label>
-            <!-- 
-            absolute: tira o label do fluxo normal para posicioná-lo sobre o input
-            left-6: distância da esquerda do container
-            top-1/2 -translate-y-1/2: centraliza verticalmente no meio do input
-            text-base: tamanho de fonte padrão
-            text-gray-1: cor do texto padrão
-            bg-white: fundo branco para "cortar" a borda quando o label sobe
-            px-1: espaçamento horizontal para o fundo não ficar colado no texto
-            transition-all duration-200: animação suave de 200ms em todas as propriedades
-
-            peer-placeholder-shown:top-1/2: enquanto o campo estiver vazio, mantém no meio
-            peer-placeholder-shown:-translate-y-1/2: enquanto o campo estiver vazio, mantém centralizado
-            peer-placeholder-shown:text-base: enquanto o campo estiver vazio, mantém tamanho normal
-
-            peer-focus:top-0: ao clicar, sobe o label para a borda superior
-            peer-focus:-translate-y-1/2: ao clicar, centraliza o label na borda
-            peer-focus:text-xs: ao clicar, diminui o tamanho da fonte
-            peer-focus:text-red-1: ao clicar, muda a cor do label para red-1
-
-            peer-valid:top-0: com o campo preenchido, mantém o label na borda
-            peer-valid:-translate-y-1/2: com o campo preenchido, mantém centralizado na borda
-            peer-valid:text-xs: com o campo preenchido, mantém a fonte pequena
-            -->
           </div>
           <!-- Input data nascimento -->
           <div
@@ -132,23 +109,32 @@
             -->
           </div>
           <!-- TIPO SANGUÍNEO E CEP -->
-          <div class="flex flex-row gap-4">
+          <div class="flex flex-row gap-4 w-4/5">
             <!-- Input tipo sanguíneo -->
+            <!-- (select não suporta placeholder, então precisa usar group-focus-within + peer-valid) -->
             <div
               class="group relative flex flex-row justify-center items-center w-4/5 h-12 bg-white border-2 border-gray-2 p-2 rounded-3xl gap-2 focus-within:border-red-1"
             >
               <img class="size-4" src="../img/tipo_sanguineo.png" alt="gota" />
-              <input
-                class="peer outline-none w-4/5 text-gray-1 text-base transition-all duration-200"
+              <select
+                class="peer outline-none w-2/3 text-gray-1 text-base bg-white transition-all duration-200 appearance-none cursor-pointer"
                 required
-                placeholder=" "
-                type="text"
                 name="tipo_sanguineo"
                 id="tipo_sanguineo"
-              />
+              >
+                <option value="" disabled selected hidden></option>
+                <option value="A+">A+</option>
+                <option value="A-">A-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B-</option>
+                <option value="AB+">AB+</option>
+                <option value="AB-">AB-</option>
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
+              </select>
               <label
                 for="tipo_sanguineo"
-                class="absolute left-14 top-1/2 -translate-y-1/2 text-base text-gray-1 bg-white px-1 transition-all duration-200 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:text-base peer-focus:top-0 peer-focus:-translate-y-1/2 peer-focus:text-xs peer-focus:text-red-1 peer-valid:top-0 peer-valid:-translate-y-1/2 peer-valid:text-xs"
+                class="pointer-events-none absolute left-10 top-1/2 -translate-y-1/2 text-base text-gray-1 bg-white px-1 transition-all duration-200 group-focus-within:top-0 group-focus-within:-translate-y-1/2 group-focus-within:text-xs group-focus-within:text-red-1 peer-valid:top-0 peer-valid:-translate-y-1/2 peer-valid:text-xs"
               >
                 Tipo sanguíneo
               </label>
@@ -163,7 +149,7 @@
                 alt="documento de identidade"
               />
               <input
-                class="peer outline-none w-4/5 text-gray-1 text-base transition-all duration-200"
+                class="peer outline-none w-3/5 text-gray-1 text-base transition-all duration-200"
                 required
                 placeholder=" "
                 type="text"
@@ -193,12 +179,12 @@
             />
             <label
               for="email"
-              class="absolute left-14 top-1/2 -translate-y-1/2 text-base text-gray-1 bg-white px-1 transition-all duration-200 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:text-base peer-focus:top-0 peer-focus:-translate-y-1/2 peer-focus:text-xs peer-focus:text-red-1 peer-valid:top-0 peer-valid:-translate-y-1/2 peer-valid:text-xs"
+              class="absolute left-16 top-1/2 -translate-y-1/2 text-base text-gray-1 bg-white px-1 transition-all duration-200 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:text-base peer-focus:top-0 peer-focus:-translate-y-1/2 peer-focus:text-xs peer-focus:text-red-1 peer-not-placeholder-shown:top-0 peer-not-placeholder-shown:-translate-y-1/2 peer-not-placeholder-shown:text-xs"
             >
               E-mail
             </label>
           </div>
-          <!-- Input E-mail -->
+          <!-- Input Senha -->
           <div
             class="group relative flex flex-row justify-center items-center w-4/5 h-12 bg-white border-2 border-gray-2 p-2 rounded-3xl gap-2 focus-within:border-red-1"
           >
@@ -213,10 +199,19 @@
             />
             <label
               for="senha"
-              class="absolute left-14 top-1/2 -translate-y-1/2 text-base text-gray-1 bg-white px-1 transition-all duration-200 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:text-base peer-focus:top-0 peer-focus:-translate-y-1/2 peer-focus:text-xs peer-focus:text-red-1 peer-valid:top-0 peer-valid:-translate-y-1/2 peer-valid:text-xs"
+              class="absolute left-16 top-1/2 -translate-y-1/2 text-base text-gray-1 bg-white px-1 transition-all duration-200 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:text-base peer-focus:top-0 peer-focus:-translate-y-1/2 peer-focus:text-xs peer-focus:text-red-1 peer-not-placeholder-shown:top-0 peer-not-placeholder-shown:-translate-y-1/2 peer-not-placeholder-shown:text-xs"
             >
               Senha
             </label>
+          </div>
+          <div class="flex justify-center items-center w-4/5">
+            <div class="bg-red-1 flex justify-center w-28 h-8 rounded-2xl">
+              <input
+                class="text-white font-inter font-semibold"
+                type="submit"
+                value="Cadastrar"
+              />
+            </div>
           </div>
         </form>
       </section>
