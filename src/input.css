@@ -6,6 +6,7 @@
   --red-2: #9e1313;
   --gray-1: #7d7d7d;
   --gray-2: #DBDBDB;
+  --gray-3: #A09B9B;
   --green-1: #5d8604;
   --green-2: #d9f4ca;
 }
@@ -16,6 +17,7 @@
   --color-red-2: var(--red-2);
   --color-gray-1: var(--gray-1);
   --color-gray-2: var(--gray-2);
+  --color-gray-3: var(--gray-3);
   --color-green-1: var(--green-1);
   --color-green-2: var(--green-2);
 
