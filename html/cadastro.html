@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../dist/output.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Agbalumo&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="../img/logo.png" type="image/png" />
+    <script src="../js/api.js"></script>
+    <title>Doe Mais - Cadastro</title>
+  </head>
+  <body class="flex h-screen flex-col md:flex-row">
+    <!-- Lateral (desktop only) -->
+    <div
+      class="hidden md:flex h-screen w-[40%] bg-red-1 rounded-br-[10%] rounded-tr-[10%] flex-col justify-evenly items-center font-inter text-white"
+    >
+      <h2 class="text-3xl font-bold">Seja um doador!</h2>
+      <img
+        class="w-44 h-44"
+        src="../img/cadastro_banco_sangue.png"
+        alt="banco de sangue"
+      />
+      <p class="text-xl font-bold">Espalhe vida com um gesto</p>
+    </div>
+
+    <main class="flex justify-center items-center w-full h-full">
+      <section class="flex flex-col h-10/12 w-full md:w-1/2 px-6 md:px-0">
+        <!-- Header -->
+        <div class="flex flex-col h-[10%] w-full text-gray-1 font-inter">
+          <h1 class="text-4xl font-extralight">Crie sua conta</h1>
+          <div class="flex flex-row text-sm gap-2">
+            <p class="font-extralight">Já possuí conta?</p>
+            <a
+              class="font-normal underline hover:text-red-1"
+              href="./login.html"
+              >Clique aqui</a
+            >
+          </div>
+        </div>
+
+        <!-- Step dots (mobile only) -->
+        <div class="flex md:hidden justify-center gap-3 mt-4 mb-2">
+          <span
+            id="dot-1"
+            class="w-3 h-3 rounded-full bg-red-1 transition-all duration-300"
+          ></span>
+          <span
+            id="dot-2"
+            class="w-3 h-3 rounded-full bg-gray-300 transition-all duration-300"
+          ></span>
+        </div>
+
+        <!-- Form -->
+        <form
+          class="flex flex-col justify-evenly h-full w-full md:w-11/12 gap-4 bg-white"
+          action="#"
+        >
+          <!-- Input nome -->
+          <div
+            id="field-nome"
+            class="group relative flex flex-row justify-center items-center w-full md:w-4/5 h-12 bg-white border-2 border-gray-2 p-2 rounded-3xl gap-2 focus-within:border-red-1"
+          >
+            <input
+              class="peer outline-none w-full bg-transparent pl-6 text-gray-1 text-base transition-all duration-200"
+              required
+              placeholder=" "
+              type="text"
+              name="nome"
+              id="nome"
+            />
+            <label
+              for="nome"
+              class="absolute left-6 top-1/2 -translate-y-1/2 text-base text-gray-1 bg-white px-1 transition-all duration-200 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:text-base peer-focus:top-0 peer-focus:-translate-y-1/2 peer-focus:text-xs peer-focus:text-red-1 peer-not-placeholder-shown:top-0 peer-not-placeholder-shown:-translate-y-1/2 peer-not-placeholder-shown:text-xs"
+              >Nome</label
+            >
+          </div>
+
+          <!-- Input data nascimento -->
+          <div
+            id="field-data"
+            class="group relative flex flex-row items-center w-full md:w-4/5 h-12 bg-white border-2 border-gray-2 px-4 rounded-3xl gap-2 transition-all duration-200 focus-within:border-red-1"
+          >
+            <img
+              class="size-4 shrink-0"
+              src="../img/data_nascimento.png"
+              alt="bolo de aniversário"
+            />
+            <div class="relative flex-1 h-full flex items-center">
+              <input
+                class="[&::-webkit-calendar-picker-indicator]:opacity-40 peer outline-none w-full text-gray-1 text-base transition-all duration-200 bg-transparent opacity-0 group-focus-within:opacity-100"
+                required
+                type="date"
+                name="data_nascimento"
+                id="data_nascimento"
+              />
+              <label
+                for="data_nascimento"
+                class="pointer-events-none absolute left-0 top-1/2 -translate-y-1/2 text-base text-gray-1 bg-white px-1 transition-all duration-200 group-focus-within:top-0 group-focus-within:-translate-y-1/2 group-focus-within:text-xs group-focus-within:text-red-1"
+                >Data de nascimento</label
+              >
+            </div>
+          </div>
+
+          <!-- TIPO SANGUÍNEO E CPF — desktop row -->
+          <div
+            id="field-row-desktop"
+            class="hidden md:flex flex-row gap-4 w-4/5"
+          >
+            <!-- Tipo sanguíneo desktop -->
+            <div
+              class="group relative flex flex-row justify-center items-center w-4/5 h-12 bg-white border-2 border-gray-2 p-2 rounded-3xl gap-2 focus-within:border-red-1"
+            >
+              <img
+                class="size-4 shrink-0"
+                src="../img/tipo_sanguineo.png"
+                alt="gota"
+              />
+              <select
+                class="peer outline-none w-2/3 text-gray-1 text-base bg-white transition-all duration-200 appearance-none cursor-pointer"
+                required
+                name="tipo_sanguineo"
+                id="tipo_sanguineo"
+              >
+                <option value="" disabled selected hidden></option>
+                <option value="A+">A+</option>
+                <option value="A-">A-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B-</option>
+                <option value="AB+">AB+</option>
+                <option value="AB-">AB-</option>
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
+              </select>
+              <label
+                for="tipo_sanguineo"
+                id="label-tipo_sanguineo"
+                class="pointer-events-none absolute left-12 top-1/2 -translate-y-1/2 text-base text-gray-1 bg-white px-1 transition-all duration-200 group-focus-within:top-0 group-focus-within:-translate-y-1/2 group-focus-within:text-xs group-focus-within:text-red-1"
+                >Tipo sanguíneo</label
+              >
+            </div>
+
+            <!-- CPF desktop -->
+            <div
+              class="group relative flex flex-row justify-center items-center w-4/5 h-12 bg-white border-2 border-gray-2 p-2 rounded-3xl gap-2 focus-within:border-red-1"
+            >
+              <img
+                class="size-4"
+                src="../img/cpf.png"
+                alt="documento de identidade"
+              />
+              <input
+                class="peer outline-none w-3/5 text-gray-1 text-base transition-all duration-200"
+                required
+                placeholder=" "
+                type="text"
+                name="cpf"
+                id="cpf"
+              />
+              <label
+                for="cpf"
+                class="absolute left-14 top-1/2 -translate-y-1/2 text-base text-gray-1 bg-white px-1 transition-all duration-200 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:text-base peer-focus:top-0 peer-focus:-translate-y-1/2 peer-focus:text-xs peer-focus:text-red-1 peer-valid:top-0 peer-valid:-translate-y-1/2 peer-valid:text-xs"
+                >CPF</label
+              >
+            </div>
+          </div>
+
+          <!-- CPF — mobile step 1 -->
+          <div
+            id="field-cpf-mobile"
+            class="md:hidden group relative flex flex-row items-center w-full h-12 bg-white border-2 border-gray-2 px-4 rounded-3xl gap-2 focus-within:border-red-1"
+          >
+            <img
+              class="size-4 shrink-0"
+              src="../img/cpf.png"
+              alt="documento de identidade"
+            />
+            <input
+              class="peer outline-none flex-1 text-gray-1 text-base transition-all duration-200 bg-transparent placeholder-transparent"
+              placeholder=" "
+              type="text"
+              name="cpf_mobile"
+              id="cpf_mobile"
+            />
+            <label
+              for="cpf_mobile"
+              class="absolute left-12 top-1/2 -translate-y-1/2 text-base text-gray-1 bg-white px-1 transition-all duration-200 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:text-base peer-focus:top-0 peer-focus:-translate-y-1/2 peer-focus:text-xs peer-focus:text-red-1 peer-not-placeholder-shown:top-0 peer-not-placeholder-shown:-translate-y-1/2 peer-not-placeholder-shown:text-xs"
+              >CPF</label
+            >
+          </div>
+
+          <!-- Tipo sanguíneo — mobile step 1 -->
+          <div
+            id="field-tipo-mobile"
+            class="md:hidden group relative flex flex-row items-center w-full h-12 bg-white border-2 border-gray-2 px-4 rounded-3xl gap-2 focus-within:border-red-1"
+          >
+            <img
+              class="size-4 shrink-0"
+              src="../img/tipo_sanguineo.png"
+              alt="gota"
+            />
+            <select
+              class="peer outline-none flex-1 text-gray-1 text-base bg-white transition-all duration-200 appearance-none cursor-pointer"
+              name="tipo_sanguineo_mobile"
+              id="tipo_sanguineo_mobile"
+            >
+              <option value="" disabled selected hidden></option>
+              <option value="A+">A+</option>
+              <option value="A-">A-</option>
+              <option value="B+">B+</option>
+              <option value="B-">B-</option>
+              <option value="AB+">AB+</option>
+              <option value="AB-">AB-</option>
+              <option value="O+">O+</option>
+              <option value="O-">O-</option>
+            </select>
+            <label
+              for="tipo_sanguineo_mobile"
+              id="label-tipo_sanguineo_mobile"
+              class="pointer-events-none absolute left-12 top-1/2 -translate-y-1/2 text-base text-gray-1 bg-white px-1 transition-all duration-200 group-focus-within:top-0 group-focus-within:-translate-y-1/2 group-focus-within:text-xs group-focus-within:text-red-1"
+              >Tipo sanguíneo</label
+            >
+          </div>
+
+          <!-- Botão Avançar (mobile step 1) -->
+          <div
+            id="btn-avancar-wrap"
+            class="md:hidden flex justify-center items-center w-full"
+          >
+            <button
+              type="button"
+              id="btn-avancar"
+              class="bg-red-1 flex justify-center items-center w-28 h-8 rounded-2xl transition-transform hover:scale-105 duration-500 cursor-pointer text-white font-inter font-semibold"
+            >
+              Avançar
+            </button>
+          </div>
+
+          <!-- Input E-mail -->
+          <div
+            id="field-email"
+            class="group relative flex flex-row justify-center items-center w-full md:w-4/5 h-12 bg-white border-2 border-gray-2 p-2 rounded-3xl gap-2 focus-within:border-red-1"
+          >
+            <img class="size-4" src="../img/email.png" alt="envelope" />
+            <input
+              class="peer outline-none w-4/5 text-gray-1 text-base transition-all duration-200"
+              required
+              placeholder=" "
+              type="email"
+              name="email"
+              id="email"
+            />
+            <label
+              for="email"
+              class="absolute left-16 top-1/2 -translate-y-1/2 text-base text-gray-1 bg-white px-1 transition-all duration-200 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:text-base peer-focus:top-0 peer-focus:-translate-y-1/2 peer-focus:text-xs peer-focus:text-red-1 peer-not-placeholder-shown:top-0 peer-not-placeholder-shown:-translate-y-1/2 peer-not-placeholder-shown:text-xs"
+              >E-mail</label
+            >
+          </div>
+
+          <!-- Input Senha -->
+          <div
+            id="field-senha"
+            class="group relative flex flex-row justify-center items-center w-full md:w-4/5 h-12 bg-white border-2 border-gray-2 p-2 rounded-3xl gap-2 focus-within:border-red-1"
+          >
+            <img class="size-4" src="../img/senha.png" alt="cadeado" />
+            <input
+              class="peer outline-none w-4/5 text-gray-1 text-base transition-all duration-200"
+              required
+              placeholder=" "
+              type="password"
+              name="senha"
+              id="senha"
+            />
+            <label
+              for="senha"
+              class="absolute left-16 top-1/2 -translate-y-1/2 text-base text-gray-1 bg-white px-1 transition-all duration-200 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:text-base peer-focus:top-0 peer-focus:-translate-y-1/2 peer-focus:text-xs peer-focus:text-red-1 peer-not-placeholder-shown:top-0 peer-not-placeholder-shown:-translate-y-1/2 peer-not-placeholder-shown:text-xs"
+              >Senha</label
+            >
+          </div>
+
+          <!-- Botão Cadastrar -->
+          <div
+            id="btn-cadastrar-wrap"
+            class="flex justify-center items-center w-full md:w-4/5"
+          >
+            <div
+              class="bg-red-1 flex justify-center w-28 h-8 rounded-2xl transition-transform hover:scale-105 duration-500 cursor-pointer"
+            >
+              <input
+                class="text-white font-inter font-semibold cursor-pointer"
+                type="submit"
+                value="Cadastrar"
+              />
+            </div>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <script>
+      const STEP1_IDS = [
+        "field-nome",
+        "field-data",
+        "field-cpf-mobile",
+        "field-tipo-mobile",
+        "btn-avancar-wrap",
+      ];
+      const STEP2_IDS = ["field-email", "field-senha", "btn-cadastrar-wrap"];
+
+      function isMobile() {
+        return window.innerWidth < 1024;
+      }
+
+      function setDisplay(ids, show) {
+        ids.forEach((id) => {
+          document.getElementById(id).style.display = show ? "" : "none";
+        });
+      }
+
+      function initMobile() {
+        if (isMobile()) {
+          setDisplay(STEP2_IDS, false);
+          setDisplay(STEP1_IDS, true);
+          document
+            .getElementById("dot-1")
+            .classList.replace("bg-gray-300", "bg-red-1");
+          document
+            .getElementById("dot-2")
+            .classList.replace("bg-red-1", "bg-gray-300");
+        } else {
+          setDisplay([...STEP1_IDS, ...STEP2_IDS], true);
+        }
+      }
+
+      // Label flutua após select escolhido
+      ["tipo_sanguineo", "tipo_sanguineo_mobile"].forEach((id) => {
+        const sel = document.getElementById(id);
+        const label = document.getElementById("label-" + id);
+        sel.addEventListener("change", () => {
+          if (sel.value) {
+            label.style.top = "0";
+            label.style.transform = "translateY(-50%)";
+            label.style.fontSize = "0.75rem";
+            label.style.color = "var(--color-red-1, #e53e3e)";
+          }
+        });
+      });
+
+      // Mantém input date visível após interação
+      document
+        .getElementById("data_nascimento")
+        .addEventListener("change", function () {
+          this.classList.remove("opacity-0");
+          this.classList.add("opacity-100");
+          const label = this.closest(".relative").querySelector("label");
+          label.style.top = "0";
+          label.style.transform = "translateY(-50%)";
+          label.style.fontSize = "0.75rem";
+        });
+
+      document.getElementById("btn-avancar").addEventListener("click", () => {
+        const nome = document.getElementById("nome").value.trim();
+        const data = document.getElementById("data_nascimento").value;
+        const cpf = document.getElementById("cpf_mobile").value.trim();
+        const tipo = document.getElementById("tipo_sanguineo_mobile").value;
+
+        if (!nome || !data || !cpf || !tipo) {
+          [
+            "nome",
+            "data_nascimento",
+            "cpf_mobile",
+            "tipo_sanguineo_mobile",
+          ].forEach((id) => {
+            const el = document.getElementById(id);
+            if (!el.value) el.reportValidity();
+          });
+          return;
+        }
+
+        setDisplay(STEP1_IDS, false);
+        setDisplay(STEP2_IDS, true);
+        document
+          .getElementById("dot-1")
+          .classList.replace("bg-red-1", "bg-gray-2");
+        document
+          .getElementById("dot-2")
+          .classList.replace("bg-gray-300", "bg-red-1");
+      });
+
+      window.addEventListener("resize", initMobile);
+      initMobile();
+    </script>
+  </body>
+</html>

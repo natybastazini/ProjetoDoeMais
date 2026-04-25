@@ -40,7 +40,7 @@
           <li class="cursor-pointer hover:text-red-1">Quero doar</li>
         </ul>
         <!-- Botão cadastro -->
-        <a href="./register.html">
+        <a href="./cadastro.html">
           <button
             class="font-inter font-semibold bg-white text-red-1 border-2 border-red-1 w-32 h-8 rounded-4xl transition-all duration-500 hover:text-white hover:bg-red-1 cursor-pointer"
           >
@@ -50,7 +50,7 @@
       </div>
       <hr class="opacity-30 shrink-0 w-full" />
     </header>
-    <main class="flex flex-col pt-10 gap-10">
+    <main class="flex flex-col pt-10 gap-10 ">
       <div class="flex flex-col justify-center items-center font-inter gap-10">
         <!-- Texto informativo 1 -->
         <h1 class="text-6xl font-light text-red-1">Doação de Sangue</h1>
@@ -95,7 +95,7 @@
           </h2>
         </div>
         <!-- Requisitos -->
-        <div class="flex justify-evenly w-full bg-green-1">
+        <section class="grid grid-cols-4 justify-items-center gap-4 w-full bg-green-1">
           <div
             class="flex flex-col justify-evenly items-center w-48 h-48 p-2 bg-white rounded-4xl shadow-lg/40"
           >
@@ -145,7 +145,20 @@
             </p>
           </div>
         </div>
-      </div>
+      </section>
+      <h2 class="text-center font-inter text-4xl text-red-1 font-bold">O doador deve respeitar os intervalos entre doações</h2>
+      <section class="flex h- w-full justify-evenly">
+        <div class="flex flex-col items-center justify-center gap-4 bg-white border-2 border-red-1 w-64 rounded-2xl p-4 shadow-lg/40">
+          <h3 class="font-semibold text-gray-1 text-2xl">MULHERES</h3>
+          <img src="/img/mulheres.png" alt="simbolo espelho de vênus">
+          <h3 class="font-normal text-gray-1 text-2xl">Intervalo de 90 dias </h3>
+        </div>
+        <div class="flex flex-col items-center justify-center gap-4 bg-white border-2 border-red-1 w-64 rounded-2xl p-4 shadow-lg/40">
+          <h3 class="font-semibold text-gray-1 text-2xl">HOMENS</h3>
+          <img src="/img/homens.png" alt="simbolo de venus">
+          <h3 class="font-normal text-gray-1 text-2xl">Intervalo de 60 dias </h3>
+        </div>
+      </section>
     </main>
   </body>
 </html>
