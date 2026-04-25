@@ -87,6 +87,7 @@
           capacitados.
         </p>
       </div>
+      <!-- Seção com cards informativos sobre requisitos para doação de sangue -->
       <div class="flex flex-col w-full bg-red-1 pt-14 pb-14 pl-6 pr-6 gap-10">
         <div class="flex w-full justify-center">
           <!-- Título dos Requisitos -->
@@ -95,7 +96,7 @@
           </h2>
         </div>
         <!-- Requisitos -->
-        <section class="grid grid-cols-4 justify-items-center gap-4 w-full bg-green-1">
+        <section class="grid grid-cols-4 justify-items-center gap-10 w-full bg-red-1">
           <div
             class="flex flex-col justify-evenly items-center w-48 h-48 p-2 bg-white rounded-4xl shadow-lg/40"
           >
@@ -128,6 +129,12 @@
               Apresentar documento oficial (com foto)
             </p>
           </div>
+          <!-- ******************GATO***************** -->
+           <div
+            class="flex flex-col justify-evenly items-center w-48 h-48 p-2 bg-transparent "
+          >
+          </div>
+          <!-- *******************GATO**************** -->
           <div
             class="flex flex-col justify-evenly items-center w-48 h-48 p-2 bg-white rounded-4xl shadow-lg/40"
           >
@@ -144,11 +151,13 @@
               Ter dormido bem a noite anterior (6 horas)
             </p>
           </div>
-        </div>
-      </section>
-      <h2 class="text-center font-inter text-4xl text-red-1 font-bold">O doador deve respeitar os intervalos entre doações</h2>
-      <section class="flex h- w-full justify-evenly">
-        <div class="flex flex-col items-center justify-center gap-4 bg-white border-2 border-red-1 w-64 rounded-2xl p-4 shadow-lg/40">
+        </section>
+      </div>
+      <!-- Cards informativos sobre o intervalo de tempo entre doações por gênero -->
+      <section class="flex flex-col h- w-full gap-14 pb-20">
+        <h2 class="text-center font-inter text-4xl text-red-1 font-bold">O doador deve respeitar os intervalos entre doações</h2>
+        <div class="flex flex-row justify-evenly">
+          <div class="flex flex-col items-center justify-center gap-4 bg-white border-2 border-red-1 w-64 rounded-2xl p-4 shadow-lg/40">
           <h3 class="font-semibold text-gray-1 text-2xl">MULHERES</h3>
           <img src="/img/mulheres.png" alt="simbolo espelho de vênus">
           <h3 class="font-normal text-gray-1 text-2xl">Intervalo de 90 dias </h3>
@@ -159,6 +168,174 @@
           <h3 class="font-normal text-gray-1 text-2xl">Intervalo de 60 dias </h3>
         </div>
       </section>
+      <!-- seção de conteúdos sobre quem não pode doar -->
+      <div class=" flex w-full justify-center">
+        <section class="w-7xl flex">
+          <div class="flex flex-col gap-10">
+            <h2 class="text-red-1 text-3xl font-inter font-semibold">Quem não pode doar?</h2>
+            <p class="text-xl font-inter text-gray-3">Existem fatores que podem impedir a doação sangue. Conhecê-los é essencial para garantir que o processo seja seguro, protegendo a saúde de quem doa e de quem recebe.</p>
+            <p class="text-xl font-inter text-gray-3">As <span class="text-red-1">restrições temporárias</span> aplicam-se a qualquer situação que possa afetar temporariamente a saúde do doador ou a qualidade do sangue coletado. O <span class="text-red-1"> tempo de espera depende da condição específica e é definido pelo serviço de hemoterapia.</span></p>
+          </div>
+        </section>
+      </div>
+      <!-- Seção com cards informativos sobre restrições temporárias para doação de sangue -->
+      <div class="flex flex-col w-full bg-red-1 pt-14 pb-14 pl-6 pr-6 gap-10">
+        <div class="flex w-full justify-center">
+          <!-- Título das restrições temporárias -->
+          <h2 class="font-bold text-4xl text-white">
+            Restrições temporárias para ser um doador de sangue
+          </h2>
+        </div>
+        <!-- Cards das restrições temporárias -->
+        <section class="grid grid-cols-4 justify-items-center gap-8 w-full">
+          <div
+            class="flex flex-col justify-evenly items-center w-44 h-44 p-2 bg-white rounded-4xl shadow-lg/40"
+          >
+            <img class="w-2/4 h-2/4" src="/img/gravida.png" alt="grávida" />
+            <p class="font-inter font-semibold text-red-1 text-center text-sm">
+              Estar grávida ou amamentando
+            </p>
+          </div>
+          <div
+            class="flex flex-col justify-evenly items-center w-44 h-44 p-2 bg-white rounded-4xl shadow-lg/40"
+          >
+            <img class="w-2/4 h-2/4" src="/img/bebida.png" alt="drink" />
+            <p class="font-inter font-semibold text-red-1 text-center text-sm">
+              Ter consumido bebidas alcoólicas (12h).
+            </p>
+          </div>
+          <div
+            class="flex flex-col justify-evenly items-center w-44 h-44 p-2 bg-white rounded-4xl shadow-lg/40"
+          >
+            <img class="w-2/4 h-2/4" src="/img/doente.png" alt="pessoa com febre" />
+            <p class="font-inter font-semibold text-red-1 text-center text-sm">
+              Gripe, resfriado ou febre.
+            </p>
+          </div>
+          <div
+            class="flex flex-col justify-evenly items-center w-44 h-44 p-2 bg-white rounded-4xl shadow-lg/40"
+          >
+            <img class="w-3/4 h-2/4" src="/img/piercing_tatto.png" alt="piercing e tatuagem" />
+            <p class="font-inter font-semibold text-red-1 text-center text-sm">
+              Tatuagem e Piercing <br> (6 meses)
+            </p>
+          </div>
+          <div
+            class="flex flex-col justify-evenly items-center w-44 h-44 p-2 bg-white rounded-4xl shadow-lg/40"
+          >
+            <img class="w-2/4 h-2/4" src="/img/vacina.png" alt="vacina" />
+            <p class="font-inter font-semibold text-red-1 text-center text-sm">
+              Vacina
+            </p>
+          </div>
+          <div
+            class="flex flex-col justify-evenly items-center w-44 h-44 p-2 bg-white rounded-4xl shadow-lg/40"
+          >
+            <img class="w-2/4 h-2/4" src="/img/medicamento.png" alt="medicamento/remédio" />
+            <p class="font-inter font-semibold text-red-1 text-center text-sm">
+              Uso de certos medicamentos.
+            </p>
+          </div>
+          <div
+            class="flex flex-col justify-evenly items-center w-44 h-44 p-2 bg-white rounded-4xl shadow-lg/40"
+          >
+            <img class="w-2/4 h-2/4" src="/img/cirurgia.png" alt="cirurgia" />
+            <p class="font-inter font-semibold text-red-1 text-center text-sm">
+              Cirurgias (6 meses).
+            </p>
+          </div>
+          <div
+            class="flex flex-col justify-evenly items-center w-44 h-44 p-2 bg-white rounded-4xl shadow-lg/40"
+          >
+            <img class="w-2/4 h-2/4" src="/img/endoscopia.png" alt="endoscopia" />
+            <p class="font-inter font-semibold text-red-1 text-center text-sm">
+              Endoscopia ou exames envasivos.
+            </p>
+          </div>
+        </section>
+      </div>
+      <!-- Texto informativo sobre restrições permanentes -->
+      <div class="flex w-full justify-center">
+        <div class="flex w-7xl">
+          <p class="text-xl font-inter text-gray-3">As <span class="text-red-1">restrições permanentes</span> são aplicadas quando existe risco definitivo de transmissão de doenças pelo sangue. Nesses casos, <span class="text-red-1"> a pessoa não poderá doar em nenhum momento.</span> </p>
+        </div>
+      </div>
+      <!-- Seção com cards informativos sobre restrições permanetes para doação de sangue -->
+      <div class="flex flex-col w-full bg-red-1 pt-14 pb-14 pl-6 pr-6 gap-10">
+        <div class="flex w-full justify-center">
+          <!-- Título das restrições temporárias -->
+          <h2 class="font-bold text-4xl text-white">
+            Restrições permanentes para ser um doador de sangue
+          </h2>
+        </div>
+        <!-- Cards das restrições temporárias -->
+        <section class="grid grid-cols-4 justify-items-center gap-8 w-full">
+          <div
+            class="flex flex-col justify-evenly items-center w-44 h-44 p-2 bg-white rounded-4xl shadow-lg/40"
+          >
+            <img class="w-2/4 h-2/4" src="/img/transmissiveis_pelo_sangue.png" alt="doenças transmissíveis pelo sangue" />
+            <p class="font-inter font-semibold text-red-1 text-center text-sm">
+              Doenças transmissíveis pelo sangue.
+            </p>
+          </div>
+          <div
+            class="flex flex-col justify-evenly items-center w-44 h-44 p-2 bg-white rounded-4xl shadow-lg/40"
+          >
+            <img class="w-2/4 h-2/4" src="/img/drogas.png" alt="drogas" />
+            <p class="font-inter font-semibold text-red-1 text-center text-sm">
+              Uso de drogas.
+            </p>
+          </div>
+          <div
+            class="flex flex-col justify-evenly items-center w-44 h-44 p-2 bg-white rounded-4xl shadow-lg/40"
+          >
+            <img class="w-2/4 h-2/4" src="/img/doenca_grave.png" alt="condições de sáude graves" />
+            <p class="font-inter font-semibold text-red-1 text-center text-sm">
+              Algumas condições de saúde graves.
+            </p>
+          </div>
+          <div
+            class="flex flex-col justify-evenly items-center w-44 h-44 p-2 bg-white rounded-4xl shadow-lg/40"
+          >
+            <img class="w-2/4 h-2/4" src="/img/transplante.png" alt="transplante" />
+            <p class="font-inter font-semibold text-red-1 text-center text-sm">
+              Ter feito transplante de órgãos ou tecidos específicos.
+            </p>
+          </div>
+          <div
+            class="flex flex-col justify-evenly items-center w-44 h-44 p-2 bg-white rounded-4xl shadow-lg/40"
+          >
+            <img class="w-2/4 h-2/4" src="/img/problemas_hematologicos.png" alt="problemas hematológicos" />
+            <p class="font-inter font-semibold text-red-1 text-center text-sm">
+              Problemas hematológicos.
+            </p>
+          </div>
+          <div
+            class="flex flex-col justify-evenly items-center w-44 h-44 p-2 bg-white rounded-4xl shadow-lg/40"
+          >
+            <img class="w-2/4 h-2/4" src="/img/exame_sorologicos_positivos.png" alt="exame de histórico" />
+            <p class="font-inter font-semibold text-red-1 text-center text-sm">
+              Histórico de exames sorológicos positivos.
+            </p>
+          </div>
+          <div
+            class="flex flex-col justify-evenly items-center w-44 h-44 p-2 bg-white rounded-4xl shadow-lg/40"
+          >
+            <img class="w-2/4 h-2/4" src="/img/infeccoes__cronicas.png" alt="infecções crônicas específicas" />
+            <p class="font-inter font-semibold text-red-1 text-center text-sm">
+              Infecções crônicas específicas.
+            </p>
+          </div>
+          <div
+            class="flex flex-col justify-evenly items-center w-44 h-44 p-2 bg-white rounded-4xl shadow-lg/40"
+          >
+            <img class="w-2/4 h-2/4" src="/img/doencas_neorologicas_raras.png" alt="doença neurológicas infecciosas" />
+            <p class="font-inter font-semibold text-red-1 text-center text-sm">
+              Doenças neurológicas infecciosas raras.
+            </p>
+          </div>
+        </section>
+      </div>
     </main>
   </body>
 </html>
