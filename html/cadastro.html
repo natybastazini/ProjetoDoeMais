@@ -13,7 +13,6 @@
       rel="stylesheet"
     />
     <link rel="icon" href="../img/logo.png" type="image/png" />
-    <script src="../js/api.js"></script>
     <title>Doe Mais - Cadastro</title>
   </head>
   <body class="flex h-screen flex-col md:flex-row">
@@ -82,10 +81,33 @@
             >
           </div>
 
-          <!-- Input data nascimento -->
+          <!-- Sexo — mobile step 1 -->
+          <div
+            id="field-sexo-mobile"
+            class="md:hidden group relative flex flex-row items-center w-full h-12 bg-white border-2 border-gray-2 px-4 rounded-3xl gap-2 focus-within:border-red-1"
+          >
+            <select
+              class="peer outline-none flex-1 text-gray-1 text-base bg-white transition-all duration-200 appearance-none cursor-pointer pl-2"
+              name="sexo_mobile"
+              id="sexo_mobile"
+            >
+              <option value="" disabled selected hidden></option>
+              <option value="M">Masculino</option>
+              <option value="F">Feminino</option>
+              <option value="O">Outro</option>
+            </select>
+            <label
+              for="sexo_mobile"
+              id="label-sexo_mobile"
+              class="pointer-events-none absolute left-6 top-1/2 -translate-y-1/2 text-base text-gray-1 bg-white px-1 transition-all duration-200 group-focus-within:top-0 group-focus-within:-translate-y-1/2 group-focus-within:text-xs group-focus-within:text-red-1"
+              >Sexo</label
+            >
+          </div>
+
+          <!-- Input data nascimento — mobile step 1 -->
           <div
             id="field-data"
-            class="group relative flex flex-row items-center w-full md:w-4/5 h-12 bg-white border-2 border-gray-2 px-4 rounded-3xl gap-2 transition-all duration-200 focus-within:border-red-1"
+            class="md:hidden group relative flex flex-row items-center w-full h-12 bg-white border-2 border-gray-2 px-4 rounded-3xl gap-2 transition-all duration-200 focus-within:border-red-1"
           >
             <img
               class="size-4 shrink-0"
@@ -97,13 +119,121 @@
                 class="[&::-webkit-calendar-picker-indicator]:opacity-40 peer outline-none w-full text-gray-1 text-base transition-all duration-200 bg-transparent opacity-0 group-focus-within:opacity-100"
                 required
                 type="date"
-                name="data_nascimento"
-                id="data_nascimento"
+                name="data_nascimento_mobile"
+                id="data_nascimento_mobile"
               />
               <label
-                for="data_nascimento"
+                for="data_nascimento_mobile"
                 class="pointer-events-none absolute left-0 top-1/2 -translate-y-1/2 text-base text-gray-1 bg-white px-1 transition-all duration-200 group-focus-within:top-0 group-focus-within:-translate-y-1/2 group-focus-within:text-xs group-focus-within:text-red-1"
                 >Data de nascimento</label
+              >
+            </div>
+          </div>
+
+          <!-- CPF — mobile step 1 -->
+          <div
+            id="field-cpf-mobile"
+            class="md:hidden group relative flex flex-row items-center w-full h-12 bg-white border-2 border-gray-2 px-4 rounded-3xl gap-2 focus-within:border-red-1"
+          >
+            <img
+              class="size-4 shrink-0"
+              src="../img/cpf.png"
+              alt="documento de identidade"
+            />
+            <input
+              class="peer outline-none flex-1 text-gray-1 text-base transition-all duration-200 bg-transparent placeholder-transparent"
+              placeholder=" "
+              type="text"
+              name="cpf_mobile"
+              id="cpf_mobile"
+            />
+            <label
+              for="cpf_mobile"
+              class="absolute left-12 top-1/2 -translate-y-1/2 text-base text-gray-1 bg-white px-1 transition-all duration-200 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:text-base peer-focus:top-0 peer-focus:-translate-y-1/2 peer-focus:text-xs peer-focus:text-red-1 peer-not-placeholder-shown:top-0 peer-not-placeholder-shown:-translate-y-1/2 peer-not-placeholder-shown:text-xs"
+              >CPF</label
+            >
+          </div>
+
+          <!-- Tipo sanguíneo — mobile step 1 -->
+          <div
+            id="field-tipo-mobile"
+            class="md:hidden group relative flex flex-row items-center w-full h-12 bg-white border-2 border-gray-2 px-4 rounded-3xl gap-2 focus-within:border-red-1"
+          >
+            <img
+              class="size-4 shrink-0"
+              src="../img/tipo_sanguineo.png"
+              alt="gota"
+            />
+            <select
+              class="peer outline-none flex-1 text-gray-1 text-base bg-white transition-all duration-200 appearance-none cursor-pointer"
+              name="tipo_sanguineo_mobile"
+              id="tipo_sanguineo_mobile"
+            >
+              <option value="" disabled selected hidden></option>
+              <option value="A+">A+</option>
+              <option value="A-">A-</option>
+              <option value="B+">B+</option>
+              <option value="B-">B-</option>
+              <option value="AB+">AB+</option>
+              <option value="AB-">AB-</option>
+              <option value="O+">O+</option>
+              <option value="O-">O-</option>
+            </select>
+            <label
+              for="tipo_sanguineo_mobile"
+              id="label-tipo_sanguineo_mobile"
+              class="pointer-events-none absolute left-12 top-1/2 -translate-y-1/2 text-base text-gray-1 bg-white px-1 transition-all duration-200 group-focus-within:top-0 group-focus-within:-translate-y-1/2 group-focus-within:text-xs group-focus-within:text-red-1"
+              >Tipo sanguíneo</label
+            >
+          </div>
+
+          <!-- DATA NASCIMENTO E SEXO — desktop row -->
+          <div id="field-row-data-desktop" class="hidden md:flex flex-row gap-4 w-4/5">
+            <!-- Data nascimento desktop -->
+            <div
+              class="group relative flex flex-row items-center flex-1 h-12 bg-white border-2 border-gray-2 px-4 rounded-3xl gap-2 transition-all duration-200 focus-within:border-red-1"
+            >
+              <img
+                class="size-4 shrink-0"
+                src="../img/data_nascimento.png"
+                alt="bolo de aniversário"
+              />
+              <div class="relative flex-1 h-full flex items-center">
+                <input
+                  class="[&::-webkit-calendar-picker-indicator]:opacity-40 peer outline-none w-full text-gray-1 text-base transition-all duration-200 bg-transparent opacity-0 group-focus-within:opacity-100"
+                  required
+                  type="date"
+                  name="data_nascimento"
+                  id="data_nascimento"
+                />
+                <label
+                  for="data_nascimento"
+                  class="pointer-events-none absolute left-0 top-1/2 -translate-y-1/2 text-base text-gray-1 bg-white px-1 transition-all duration-200 group-focus-within:top-0 group-focus-within:-translate-y-1/2 group-focus-within:text-xs group-focus-within:text-red-1"
+                  >Data de nascimento</label
+                >
+              </div>
+            </div>
+
+            <!-- Sexo desktop -->
+            <div
+              class="group relative flex flex-row justify-center items-center w-2/5 h-12 bg-white border-2 border-gray-2 p-2 rounded-3xl gap-2 focus-within:border-red-1"
+            >
+              <select
+                class="peer outline-none w-full text-gray-1 text-base bg-white transition-all duration-200 appearance-none cursor-pointer pl-2"
+                required
+                name="sexo"
+                id="sexo"
+              >
+                <option value="" disabled selected hidden></option>
+                <option value="M">Masculino</option>
+                <option value="F">Feminino</option>
+                <option value="O">Outro</option>
+              </select>
+              <label
+                for="sexo"
+                id="label-sexo"
+                class="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-base text-gray-1 bg-white px-1 transition-all duration-200 group-focus-within:top-0 group-focus-within:-translate-y-1/2 group-focus-within:text-xs group-focus-within:text-red-1"
+                >Sexo</label
               >
             </div>
           </div>
@@ -171,63 +301,6 @@
             </div>
           </div>
 
-          <!-- CPF — mobile step 1 -->
-          <div
-            id="field-cpf-mobile"
-            class="md:hidden group relative flex flex-row items-center w-full h-12 bg-white border-2 border-gray-2 px-4 rounded-3xl gap-2 focus-within:border-red-1"
-          >
-            <img
-              class="size-4 shrink-0"
-              src="../img/cpf.png"
-              alt="documento de identidade"
-            />
-            <input
-              class="peer outline-none flex-1 text-gray-1 text-base transition-all duration-200 bg-transparent placeholder-transparent"
-              placeholder=" "
-              type="text"
-              name="cpf_mobile"
-              id="cpf_mobile"
-            />
-            <label
-              for="cpf_mobile"
-              class="absolute left-12 top-1/2 -translate-y-1/2 text-base text-gray-1 bg-white px-1 transition-all duration-200 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:text-base peer-focus:top-0 peer-focus:-translate-y-1/2 peer-focus:text-xs peer-focus:text-red-1 peer-not-placeholder-shown:top-0 peer-not-placeholder-shown:-translate-y-1/2 peer-not-placeholder-shown:text-xs"
-              >CPF</label
-            >
-          </div>
-
-          <!-- Tipo sanguíneo — mobile step 1 -->
-          <div
-            id="field-tipo-mobile"
-            class="md:hidden group relative flex flex-row items-center w-full h-12 bg-white border-2 border-gray-2 px-4 rounded-3xl gap-2 focus-within:border-red-1"
-          >
-            <img
-              class="size-4 shrink-0"
-              src="../img/tipo_sanguineo.png"
-              alt="gota"
-            />
-            <select
-              class="peer outline-none flex-1 text-gray-1 text-base bg-white transition-all duration-200 appearance-none cursor-pointer"
-              name="tipo_sanguineo_mobile"
-              id="tipo_sanguineo_mobile"
-            >
-              <option value="" disabled selected hidden></option>
-              <option value="A+">A+</option>
-              <option value="A-">A-</option>
-              <option value="B+">B+</option>
-              <option value="B-">B-</option>
-              <option value="AB+">AB+</option>
-              <option value="AB-">AB-</option>
-              <option value="O+">O+</option>
-              <option value="O-">O-</option>
-            </select>
-            <label
-              for="tipo_sanguineo_mobile"
-              id="label-tipo_sanguineo_mobile"
-              class="pointer-events-none absolute left-12 top-1/2 -translate-y-1/2 text-base text-gray-1 bg-white px-1 transition-all duration-200 group-focus-within:top-0 group-focus-within:-translate-y-1/2 group-focus-within:text-xs group-focus-within:text-red-1"
-              >Tipo sanguíneo</label
-            >
-          </div>
-
           <!-- Botão Avançar (mobile step 1) -->
           <div
             id="btn-avancar-wrap"
@@ -236,7 +309,7 @@
             <button
               type="button"
               id="btn-avancar"
-              class="bg-red-1 flex justify-center items-center w-28 h-8 rounded-2xl transition-transform hover:scale-105 duration-500 cursor-pointer text-white font-inter font-semibold"
+              class="bg-red-1 border-2 border-red-1 flex justify-center items-center w-28 h-8 rounded-2xl transition-all hover:bg-white hover:text-red-1 duration-300 cursor-pointer text-white font-inter font-semibold"
             >
               Avançar
             </button>
@@ -289,112 +362,18 @@
             id="btn-cadastrar-wrap"
             class="flex justify-center items-center w-full md:w-4/5"
           >
-            <div
-              class="bg-red-1 flex justify-center w-28 h-8 rounded-2xl transition-transform hover:scale-105 duration-500 cursor-pointer"
+            <button
+              type="submit"
+              class="bg-red-1 border-2 border-red-1 flex justify-center items-center w-28 h-8 rounded-2xl transition-transform hover:scale-105 duration-500 cursor-pointer text-white font-inter font-semibold"
             >
-              <input
-                class="text-white font-inter font-semibold cursor-pointer"
-                type="submit"
-                value="Cadastrar"
-              />
-            </div>
+              Cadastrar
+            </button>
           </div>
         </form>
       </section>
     </main>
 
-    <script>
-      const STEP1_IDS = [
-        "field-nome",
-        "field-data",
-        "field-cpf-mobile",
-        "field-tipo-mobile",
-        "btn-avancar-wrap",
-      ];
-      const STEP2_IDS = ["field-email", "field-senha", "btn-cadastrar-wrap"];
-
-      function isMobile() {
-        return window.innerWidth < 1024;
-      }
-
-      function setDisplay(ids, show) {
-        ids.forEach((id) => {
-          document.getElementById(id).style.display = show ? "" : "none";
-        });
-      }
-
-      function initMobile() {
-        if (isMobile()) {
-          setDisplay(STEP2_IDS, false);
-          setDisplay(STEP1_IDS, true);
-          document
-            .getElementById("dot-1")
-            .classList.replace("bg-gray-300", "bg-red-1");
-          document
-            .getElementById("dot-2")
-            .classList.replace("bg-red-1", "bg-gray-300");
-        } else {
-          setDisplay([...STEP1_IDS, ...STEP2_IDS], true);
-        }
-      }
-
-      // Label flutua após select escolhido
-      ["tipo_sanguineo", "tipo_sanguineo_mobile"].forEach((id) => {
-        const sel = document.getElementById(id);
-        const label = document.getElementById("label-" + id);
-        sel.addEventListener("change", () => {
-          if (sel.value) {
-            label.style.top = "0";
-            label.style.transform = "translateY(-50%)";
-            label.style.fontSize = "0.75rem";
-            label.style.color = "var(--color-red-1, #e53e3e)";
-          }
-        });
-      });
-
-      // Mantém input date visível após interação
-      document
-        .getElementById("data_nascimento")
-        .addEventListener("change", function () {
-          this.classList.remove("opacity-0");
-          this.classList.add("opacity-100");
-          const label = this.closest(".relative").querySelector("label");
-          label.style.top = "0";
-          label.style.transform = "translateY(-50%)";
-          label.style.fontSize = "0.75rem";
-        });
-
-      document.getElementById("btn-avancar").addEventListener("click", () => {
-        const nome = document.getElementById("nome").value.trim();
-        const data = document.getElementById("data_nascimento").value;
-        const cpf = document.getElementById("cpf_mobile").value.trim();
-        const tipo = document.getElementById("tipo_sanguineo_mobile").value;
-
-        if (!nome || !data || !cpf || !tipo) {
-          [
-            "nome",
-            "data_nascimento",
-            "cpf_mobile",
-            "tipo_sanguineo_mobile",
-          ].forEach((id) => {
-            const el = document.getElementById(id);
-            if (!el.value) el.reportValidity();
-          });
-          return;
-        }
-
-        setDisplay(STEP1_IDS, false);
-        setDisplay(STEP2_IDS, true);
-        document
-          .getElementById("dot-1")
-          .classList.replace("bg-red-1", "bg-gray-2");
-        document
-          .getElementById("dot-2")
-          .classList.replace("bg-gray-300", "bg-red-1");
-      });
-
-      window.addEventListener("resize", initMobile);
-      initMobile();
-    </script>
+    <script src="../js/auth.js"></script>
+    <script>initCadastro();</script>
   </body>
 </html>
