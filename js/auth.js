@@ -146,18 +146,21 @@ async function cadastrarUsuario(
     return;
   }
 
+  const cpfLimpo = cpf.replace(/\D/g, "");
+
   try {
     const resp = await fetch(API_URL + "/auth/register", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        name: nome,
+        nome: nome, // ✓ era "name" — errado
         email: email,
         password: senha,
-        blood_type: tipoSanguineo,
-        cpf: cpf,
+        cpf: cpfLimpo,
         sexo: sexo,
-        data_nascimento: dataNascimento,
+        data_nascimento: dataNascimento, // formato "YYYY-MM-DD" do input[type=date]
+        tipo_sanguineo: tipoSanguineo, // ✓ era "blood_type" — errado
+        aceite_termos: true, // ✓ obrigatório — faltava
       }),
     });
 
@@ -168,7 +171,10 @@ async function cadastrarUsuario(
       localStorage.setItem("usuario", JSON.stringify(dados.user));
       window.location.href = "perfil.html";
     } else {
-      alert("Erro: " + (dados.detail || "Erro desconhecido."));
+      const msg = Array.isArray(dados.detail)
+        ? dados.detail.map((e) => e.msg).join("\n")
+        : dados.detail || "Erro desconhecido.";
+      alert("Erro: " + msg);
     }
   } catch (err) {
     alert("Sem conexão com servidor. Tente novamente.");
@@ -183,6 +189,7 @@ async function fazerLogin(email, senha) {
   }
 
   try {
+    // OAuth2PasswordRequestForm exige form-data com "username" e "password"
     const form = new FormData();
     form.append("username", email);
     form.append("password", senha);
@@ -197,7 +204,7 @@ async function fazerLogin(email, senha) {
     if (resp.ok) {
       localStorage.setItem("token", dados.access_token);
       localStorage.setItem("usuario", JSON.stringify(dados.user));
-      window.location.href = "index.html";
+      window.location.href = "../index.html";
     } else {
       alert("E-mail ou senha incorretos.");
     }
@@ -211,21 +218,17 @@ function initCadastro() {
   const form = document.querySelector("form");
   if (!form) return;
 
-  // Inicializa steps mobile
   initMobile();
   window.addEventListener("resize", initMobile);
 
-  // Bind labels flutuantes — selects
   bindSelectLabel("tipo_sanguineo");
   bindSelectLabel("tipo_sanguineo_mobile");
   bindSelectLabel("sexo");
   bindSelectLabel("sexo_mobile");
 
-  // Bind labels flutuantes — dates
   bindDateLabel("data_nascimento");
   bindDateLabel("data_nascimento_mobile");
 
-  // Botão Avançar
   const btnAvancar = document.getElementById("btn-avancar");
   if (btnAvancar) {
     btnAvancar.addEventListener("click", () => {
@@ -260,7 +263,6 @@ function initCadastro() {
     });
   }
 
-  // Submit
   form.addEventListener("submit", async function (e) {
     e.preventDefault();
 
@@ -318,4 +320,21 @@ function initLogin() {
     const senha = document.getElementById("senha").value;
     await fazerLogin(email, senha);
   });
+}
+
+// ─── INDEX ───────────────────────────────────────────
+function initIndex() {
+  const usuario = JSON.parse(localStorage.getItem("usuario"));
+  if (!usuario) return;
+
+  document.getElementById("area-usuario").innerHTML = `
+    <a href="./html/perfil.html" class="flex flex-col items-center gap-1 cursor-pointer">
+      <img 
+        src="${usuario.foto || "./img/logo.png"}" 
+        class="w-14 h-14 rounded-full object-cover border-2 border-red-1"
+        alt="foto de perfil"
+      />  
+      <span class="font-inter font-semibold bg-red-1 text-white text-sm px-3 py-1 rounded-full">${usuario.tipo_sanguineo || ""}</span>
+    </a>
+  `;
 }

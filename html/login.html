@@ -23,7 +23,9 @@
           <h1 class="text-4xl font-extralight">Acesse sua conta</h1>
           <div class="flex flex-row text-sm gap-2">
             <p class="font-extralight">Não possuí conta?</p>
-            <a class="font-normal underline hover:text-red-1" href="./cadastro.html"
+            <a
+              class="font-normal underline hover:text-red-1"
+              href="./cadastro.html"
               >Clique aqui</a
             >
           </div>
@@ -96,12 +98,19 @@
               </label>
             </div>
             <div class="flex flex-row w-4/5 justify-end text-xs text-gray-1">
-              <p>Esqueceu a senha? <a class="underline hover:text-red-1 cursor-pointer">Clique aqui</a></p>
+              <p>
+                Esqueceu a senha?
+                <a class="underline hover:text-red-1 cursor-pointer"
+                  >Clique aqui</a
+                >
+              </p>
             </div>
           </div>
           <!-- Botão para entrar -->
           <div class="flex justify-center items-center w-4/5">
-            <div class="bg-red-1 flex justify-center w-28 h-8 rounded-2xl hover:scale-105 duration-500 cursor-pointer">
+            <div
+              class="bg-red-1 flex justify-center w-28 h-8 rounded-2xl hover:scale-105 duration-500 cursor-pointer"
+            >
               <input
                 class="text-white font-inter font-semibold cursor-pointer"
                 type="submit"
@@ -116,7 +125,10 @@
     <div
       class="h-screen w-[40%] bg-red-1 rounded-bl-[10%] rounded-tl-[10%] flex flex-col justify-evenly items-center font-inter text-white"
     >
-      <h2 class="text-3xl font-bold text-center">Continue fazendo <br> a diferença!</h2>
+      <h2 class="text-3xl font-bold text-center">
+        Continue fazendo <br />
+        a diferença!
+      </h2>
       <img
         class="w-44 h-44"
         src="../img/longin_banco_sangue.png"
@@ -124,5 +136,9 @@
       />
       <p class="text-xl font-bold">Espalhe vida com um gesto</p>
     </div>
+    <script src="../js/auth.js"></script>
+    <script>
+      initLogin();
+    </script>
   </body>
 </html>
